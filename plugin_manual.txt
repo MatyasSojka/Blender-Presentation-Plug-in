@@ -1,0 +1,157 @@
+"""
+                 =====================================
+             === |  BLENDER 3D PRESENTATION PLUG-IN  | ===
+                 =====================================
+                       --- By Matyas Sojka ---        
+
+
+-------------------------------------------------------------------------------
+- Welcome to the Blender 3D Presentation Plug-in.
+- It is advised that you donwload the TEMPLATE FILE for creating Components, Presentations and Presenting.
+- You can download the template file - together with full documentation - at: 
+    
+https://gitlab.fit.cvut.cz/sojkamat/blender-presentation-plug-in
+    or at:
+https://github.com/MatyasSojka/Blender-Presentation-Plug-in
+-------------------------------------------------------------------------------
+
+    |----------------|
+    |  INSTALLATION  |
+    |----------------|
+    
+- In Blender go to Edit - Preferences - Add-ons - Install...
+- Select the presentation_plugin.py file
+- Check the box to enable the add-on
+- Press N in the 3D Viewport for the plug-in UI 
+    (Components, Presentation, Slideshow)   
+    
+    
+
+WORKFLOW TIPS:
+    - Create smaller presentations in one .blend file
+    - Create separate .blend files ("Components") to form a bigger presentation
+    - If you dowloaded the presentation_plugin.zip, look in the examples folder
+        to get an idea, how a component could look
+    - Switch to the created workspaces - Components, Presentation, Slideshow and Presenter,
+        they offer prepared layouts 
+    - Check the plug-in website for an instructional video
+
+TLDR:
+    - Use the provided workspaces (from the PRESENTATION_TEMPLATE.blend file)
+    - Presentation can be divided into more "Components"
+    - Components are separate .blend files, typically animated
+    - One Component.blend file always has one camera object
+    - Use timeline markers to define stop points or loops
+    - Presentation is a separate .blend file
+    - Use "Choose Components" in the Presentation UI Tab to import Components
+    - Use "Override" to enable changes in the presentation
+    - After any changes, use "Recalculate Cameras" 
+    - Use F5 to start the presentation, F6 to end it
+    - Use PageUp, PageDown for presenting (Next, Previous)
+
+
+
+    |----------------|
+    |   COMPONENTS   |
+    |----------------|
+    
+- Components are parts of the presentation. 
+- ONE COMPONENT = ONE COLLECTION IN .blend FILE
+- !! EVERY COMPONENT NEEDS TO HAVE EXACTLY ONE CAMERA !!
+- Make sure that all the component objects are in one Collection.
+- It is advised that you use the Components Workspace while creating them.
+        
+- Use the Image Slides UI Tab to generate a component from images:
+        - Choose how to arrange the images and set camera interpolation.
+        - Select the images and the plug-in will do the rest...
+- Use the Template Creation UI Tab to create a component template:
+        - Assign types to placeholder objects in the scene.
+        - You can filter out the unassigned objects (background).
+        - Then generate a JSON file and fill it with actual data.
+- Use the Component from Template UI Tab to generate components from the template:
+        - With the template .blend file open, select the JSON file with data.
+        - Plug-in will generate new .blend files filled with the JSON data.
+- Or just make the components manually...
+
+- You can create an animated scene and use MARKERS to define when will the
+   animation stop, or loop:
+        - Rename the markers to LOOP_START and LOOP_END to create a loop (animated slide).
+        - Name it anything else to stop the animation (static slide).
+   
+
+
+    |----------------|
+    |  PRESENTATION  |
+    |----------------|
+    
+- Use the created components to form a presentation.
+- ONE PRESENTATION = ONE SCENE IN .blend FILE
+- It is advised that you use the Presentation Workspace for creating a presentation.
+- The components that you use in each presentation are copied and altered in a folder 
+    named after the presentation .blend file.
+
+- First select in what shape you want to ARRANGE the components.
+- Then customize the TRANSITION TIME.
+- Finally choose the components you want to use in Component Import UI Tab, then Import them.
+- You are free to move them around the scene afterwards.
+- The components will appear in the order in which you have selected them.
+
+- Use the Override button to enable changes:
+        - !! RIGHT BEFORE USING THE OVERRIDE BUTTON, LEFT-CLICK INTO VIEWPORT 3D !!
+                - Otherwise Blender will crash... It is an unsolved bpy.context problem
+        - !! IF YOU DO ANY OF THESE CHANGES, YOU NEED TO RECALCULATE THE CAMERAS !!
+                - Use the Recalculate Cameras button in Presentation Settings UI Tab
+        - In the NLA Editor you can CHANGE the components ORDER, just filter by 'TIMERS'
+                - Select the strip and move it to change th order
+                - !! NO TWO TIMER STRIPS SHOULD OVERLAP !!
+        - Choose more Components and import them to the presentation file
+                - They will be added to the end of the presentation
+        - Select a component a press the Delete Component button to remove it
+                - !! DONT DELETE THE COMPONENTS BY PRESSING X OR DELETE !!
+                - If you do, you can use the Reset Presentation to start over in the same file
+
+- To change the content of the presentation components:
+        - Change the altered copies of the component .blend files
+            (they are stored in a folder named after the presentation .blend file)
+        - Change the overriden component in the presentation
+            (they are in the 'OVERRIDES' Collection after overriding)
+                
+
+
+    |----------------|
+    |   SLIDESHOW    |
+    |----------------|
+
+- When your presentation is ready, its time to start presentig.
+- If you are presenting on multiple screens, use Window -> New Main Window.
+- That way you can use the Slideshow Workspace AND the Presenter Workspace.
+- In the Slideshow Workspace you can press View -> Area -> Toggle Fullscreen Area
+    to get rid of all Blender UI
+
+- Use the buttons in the Navigation UI Tab, or your keyboard keys:
+        - F5:        START THE PRESENTATION (switch to Slideshow)
+        - F6:        STOP THE PRESENTATION (switch to Presentation)
+        - PAGE_UP:   NEXT SLIDE (play animation forward)
+        - PAGE_DOWN: PREVIOUS SLIDE (play animation backward)
+        - HOME:      JUMP TO PRESENTATION START (frame 1)
+        - END:       JUMP TO PRESENTATION END (last frame)
+        
+- !! YOU CAN CHANGE THE KEY BINDINGS BY RIGHT-CLICK + CHANGE SHORTCUT IN THE UI !! 
+
+
+
+-------------------------------------------------------------------------------
+
+Thank you for using this free Blender 3D Presentation Plugin.
+
+For any questions or feedback, use the plug-in website:
+    https://gitlab.fit.cvut.cz/sojkamat/blender-presentation-plug-in
+    https://github.com/MatyasSojka/Blender-Presentation-Plug-in
+
+Or contact me via email:
+    sojkamat@fit.cvut.cz
+    matyas.sojka@seznam.cz
+
+
+
+"""
